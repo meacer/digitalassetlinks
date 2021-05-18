@@ -101,6 +101,7 @@ detail.  The set of kinds is enumerated by the API:
 Kind | Description / Reliability determination
 --- | ---
 `delegate_permission` | The detail field specifies which permission to delegate. A statement involving this relation does not constitute a *requirement* to do the delegation, just a *permission* to do so.  How to determine reliability: A statement of this kind is reliable if it's made by the owner of the asset doing the delegating.
+`lookalike_url` | The detail field specifies which sites are allowed to have lookalike URLs as this site. Some browsers may display security warnings for lookalike URLs, and site owners can use this relationship kind to suppress warnings on other sites they own.
 
 We anticipate adding other kinds in the future, but are being deliberately cautious in doing so.
 
@@ -112,6 +113,7 @@ the API:
 Pre-defined kind / detail | Description
 --- | ---
 `delegate_permission/common.handle_all_urls` | Delegates the ability to handle all URLs that the source asset can handle.
+`lookalike_url/allowlist` | Indicates that the listed sites are co-owned and shouldn't show lookalike URL warnings in browsers.
 
 If defining custom detail strings, we encourage the use of Java-style scoping, e.g, `com.google.app.detailstring`.
 
@@ -229,4 +231,3 @@ Google Maps app has the App ID 585027354.
   {JSON array of statements}
 </string>
 ```
-
